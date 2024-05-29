@@ -4,8 +4,8 @@ pipeline {
     stage('clone repository') {
       steps {
         sh '''java -version
-mvn --version
-git --version'''
+echo "mayo"
+echo "2024"'''
       }
     }
 
