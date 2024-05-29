@@ -29,7 +29,7 @@ spec:
   ports:
   - name: backend-jnkns
     port: 3000
-    nodePort : 3333 
+    nodePort : 32123 
   #type: LoadBalancer
   type: NodePort
   selector:
