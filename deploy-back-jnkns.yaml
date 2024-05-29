@@ -1,1 +1,36 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment-jnkns
+spec:
+  selector:
+   matchLabels:
+    app: backend-jnkns
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: backend-jnkns
+    spec:
+      containers:
+        - name: backend-jnkns
+          image: gussaintsofficial/nodejsapp
+          ports:
+            - containerPort: 3000
+              name: nodejsappbport
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: backend-service-jnkns
+  labels:
+    app: backend-jnkns
+spec:   
+  ports:
+  - name: backend-jnkns
+    port: 3000
+    nodePort : 3333 
+  #type: LoadBalancer
+  type: NodePort
+  selector:
+   app: backend-jnkns
